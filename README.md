@@ -98,10 +98,10 @@ If you are worried about the integrity of the dll files look at the change log f
 	progressLoadingScreen 1.0;
 	~~~~
 	
-1. Paste the following at the bottom of the ***init***:
+1. Paste the following inside the !isDedicated if:
 
 	~~~~java
-	[] execVM "admintools\Activate.sqf"; // Epoch admin tools
+	execVM "init\admintools.sqf"; // Epoch admin tools
 	~~~~
 	
 1. If you use the normal battleye antiahck or similar do this step, if not then skip it.

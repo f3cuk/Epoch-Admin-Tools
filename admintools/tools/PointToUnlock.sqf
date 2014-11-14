@@ -48,9 +48,6 @@ if (_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") 
 		_backpacks = 	_obj getVariable["BackpackCargo",[]];
 		_holder = createVehicle [_unlockedClass,_pos,[], 0, "CAN_COLLIDE"];
 		
-		//log the lockUnlock
-		PVDZE_log_lockUnlock = [player, _obj, false];
-		publicVariableServer "PVDZE_log_lockUnlock";
 		_obj setVariable["packing",1];
 		
 		// Remove locked vault

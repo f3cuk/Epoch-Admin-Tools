@@ -205,36 +205,5 @@ _spawnCrate addMagazineCargoGlobal ["PipeBomb", 20];
 
 
 // Send text to spawner only
-titleText [format[_crateName + " spawned!"],"PLAIN DOWN"]; titleFadeOut 4;
-
-selectDelay=0;
-// Run delaymenu
-delaymenu = 
-[
-	["",true],
-	["Select delay", [-1], "", -5, [["expression", ""]], "1", "0"],
-	["", [-1], "", -5, [["expression", ""]], "1", "0"],
-	["30 seconds", [], "", -5, [["expression", "selectDelay=30;"]], "1", "1"],
-	["1 min", [], "", -5, [["expression", "selectDelay=60;"]], "1", "1"],
-	["3 min", [], "", -5, [["expression", "selectDelay=180;"]], "1", "1"],
-	["5 min", [], "", -5, [["expression", "selectDelay=300;"]], "1", "1"],
-	["10 min", [], "", -5, [["expression", "selectDelay=600;"]], "1", "1"],
-	["30 min", [], "", -5, [["expression", "selectDelay=1800;"]], "1", "1"],
-	["", [-1], "", -5, [["expression", ""]], "1", "0"],
-	["No timer", [], "", -5, [["expression", "selectDelay=0;"]], "1", "1"],
-	["", [-1], "", -5, [["expression", ""]], "1", "0"]
-];
-showCommandingMenu "#USER:delaymenu";
-
-WaitUntil{commandingMenu == ""};
-_selectDelay = selectDelay;
-
-if(selectDelay != 0) then {
-	titleText [format[_crateName + " will disappear in %1 seconds.",selectDelay],"PLAIN DOWN"]; titleFadeOut 4;
-	sleep _selectDelay;
-	// Delete crate after selectDelay seconds
-	deletevehicle _spawnCrate;
-	titleText [format[_crateName + " disappeared."],"PLAIN DOWN"]; titleFadeOut 4;
-} else {
-	titleText [format[_crateName + " has no timer. Shoot it to destroy."],"PLAIN DOWN"]; titleFadeOut 4;
-};
+titleText [format[_crateName + " spawned!"],"PLAIN DOWN"];
+titleFadeOut 4;

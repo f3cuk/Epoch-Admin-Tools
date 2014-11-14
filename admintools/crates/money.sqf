@@ -1,18 +1,18 @@
 private ["_LocalOrGlobal","_spawnCrate","_crateName","_pos","_classname","_dir","_selectDelay"];
+
 _LocalOrGlobal = _this select 0;
 
 // Name of this crate
-_crateName = "Backpack Crate";
+_crateName = "Money Crate";
 
 // Crate type
-_classname = "USOrdnanceBox";
+_classname = "USBasicAmmunitionBox";
 
 // Tool use logger
 if(logMajorTool) then {
 	usageLogger = format["%1 %2 -- has spawned a %3 %4",name player,getPlayerUID player,_LocalOrGlobal,_crateName];
 	[] spawn {publicVariable "usageLogger";};
 };
-
 // Tool use broadcaster
 if(!((getPlayerUID player) in SuperAdminList) && broadcastToolUse) then {
 	useBroadcaster = format["%1 -- has spawned a %2 %3",name player,_LocalOrGlobal,_crateName];
@@ -38,13 +38,12 @@ clearWeaponCargoGlobal _spawnCrate;
 clearMagazineCargoGlobal _spawnCrate;
 clearBackpackCargoGlobal _spawnCrate;
 
-_spawnCrate addBackpackCargoGlobal ["DZ_Backpack_EP1", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_British_ACU", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_CivilBackpack_EP1", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_CompactPack_EP1", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_GunBag_EP1", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 10];
-_spawnCrate addBackpackCargoGlobal ["DZ_TK_Assault_Pack_EP1", 10];
+_spawnCrate addMagazineCargoGlobal ["ItemBriefcase100oz",50];
+_spawnCrate addMagazineCargoGlobal ["ItemGoldBar",50];
+_spawnCrate addMagazineCargoGlobal ["ItemGoldBar10oz",50];
+_spawnCrate addMagazineCargoGlobal ["ItemBriefcase_Base",50];
+_spawnCrate setVariable["cashMoney",1000000,true];
 
 // Send text to spawner only
-titleText [format[_crateName + " spawned!"],"PLAIN DOWN"]; titleFadeOut 4;
+titleText [format[_crateName + " spawned!"],"PLAIN DOWN"];
+titleFadeOut 4;

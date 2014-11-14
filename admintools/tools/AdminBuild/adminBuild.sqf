@@ -320,16 +320,14 @@ if(!_cancel) then {
 		publicVariableServer "PVDZE_obj_Publish";
 		cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
 	} else {
-		if(!isBuilding) then {
-			_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
-		
-			// fire?
-			if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
-				_tmpbuilt spawn player_fireMonitor;
-			} else {
-				PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
-				publicVariableServer "PVDZE_obj_Publish";
-			};
+		_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
+	
+		// fire?
+		if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
+			_tmpbuilt spawn player_fireMonitor;
+		} else {
+			PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
+			publicVariableServer "PVDZE_obj_Publish";
 		};
 	};
 	

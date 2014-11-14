@@ -34,10 +34,6 @@ if (_obj isKindOf "LandVehicle" || _obj isKindOf "Air" || _obj isKindOf "Ship") 
 		_dir = direction _obj;
 		_pos = _obj getVariable["OEMPos",(getposATL _obj)];
 		_ownerID = _obj getVariable["CharacterID","0"];
-
-		//log lock
-		PVDZE_log_lockUnlock = [player, _obj,true];
-		publicVariableServer "PVDZE_log_lockUnlock";
 		
 		//place locked vault
 		_holder = createVehicle [_lockedClass,_pos,[], 0, "CAN_COLLIDE"];

@@ -18,6 +18,7 @@ waitUntil {vehicle player == player};
 			endMission "LOSER";
 			sleep 10; //Bypass spam
 		};
+		sleep 5;
 	};
 	endMission "LOSER";
 };
@@ -26,7 +27,7 @@ waitUntil {vehicle player == player};
 	_playerName = name player;
 	_playerUID = getPlayerUID player;
 	while {true} do {
-		sleep 5;
+		sleep 10;
 	};
 	PVDZE_atp = format["WARNING PLAYER WITH NAME (%1) && UID# (%2) HAS CHANGED THE TRUE VALUE TO FALSE", _playerName, _playerUID];
 	publicVariableServer "PVDZE_atp";
@@ -57,7 +58,7 @@ waitUntil {vehicle player == player};
 	_al1veOnce = true;
 };
 
-while {1 == 1} do {
+while {true} do {
 	_debug = getMarkerpos "respawn_west";
 	_lastpos = getPosATL (vehicle player);
 	_lastheight = (ATLtoASL _lastpos) select 2;
